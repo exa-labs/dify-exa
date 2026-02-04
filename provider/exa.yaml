@@ -36,6 +36,9 @@ tools:
   - tools/exa_search.yaml
   - tools/exa_contents.yaml
   - tools/exa_answer.yaml
+  - tools/exa_create_webset.yaml
+  - tools/exa_get_webset.yaml
+  - tools/exa_list_webset_items.yaml
 extra:
   python:
     source: provider/exa.py

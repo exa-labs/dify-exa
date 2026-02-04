@@ -1,0 +1,67 @@
+identity:
+  name: exa_list_webset_items
+  author: "Exa Labs"
+  label:
+    en_US: Exa List Webset Items
+    zh_Hans: Exa 列出 Webset 项目
+    ja_JP: Exa Webset アイテム一覧
+    pt_BR: Exa Listar Itens do Webset
+description:
+  human:
+    en_US: List all items (results) from a Webset with pagination support.
+    zh_Hans: 列出 Webset 中的所有项目（结果），支持分页。
+    ja_JP: Websetからすべてのアイテム（結果）をページネーション付きで一覧表示します。
+    pt_BR: Liste todos os itens (resultados) de um Webset com suporte a paginação.
+  llm: List items from a Webset with pagination. Use this to retrieve all results from a completed Webset, especially when there are more than 100 items.
+parameters:
+  - name: webset_id
+    type: string
+    required: true
+    label:
+      en_US: Webset ID
+      zh_Hans: Webset ID
+      ja_JP: Webset ID
+      pt_BR: ID do Webset
+    human_description:
+      en_US: The ID of the Webset to list items from.
+      zh_Hans: 要列出项目的 Webset 的 ID。
+      ja_JP: アイテムを一覧表示するWebsetのID。
+      pt_BR: O ID do Webset para listar os itens.
+    llm_description: The ID of the Webset to list items from.
+    form: llm
+  - name: cursor
+    type: string
+    required: false
+    label:
+      en_US: Cursor
+      zh_Hans: 游标
+      ja_JP: カーソル
+      pt_BR: Cursor
+    human_description:
+      en_US: Pagination cursor from a previous response to get the next page.
+      zh_Hans: 上一个响应中的分页游标，用于获取下一页。
+      ja_JP: 次のページを取得するための前回レスポンスのページネーションカーソル。
+      pt_BR: Cursor de paginação de uma resposta anterior para obter a próxima página.
+    llm_description: Pagination cursor from a previous response. Use to get the next page of results.
+    form: llm
+  - name: limit
+    type: number
+    required: false
+    default: 25
+    min: 1
+    max: 100
+    label:
+      en_US: Limit
+      zh_Hans: 数量限制
+      ja_JP: 取得件数
+      pt_BR: Limite
+    human_description:
+      en_US: Number of items per page (1-100, default 25).
+      zh_Hans: 每页项目数量（1-100，默认25）。
+      ja_JP: ページあたりのアイテム数（1-100、デフォルト25）。
+      pt_BR: Número de itens por página (1-100, padrão 25).
+    llm_description: Number of items to return per page, from 1 to 100.
+    form: form
+extra:
+  python:
+    source: tools/exa_list_webset_items.py

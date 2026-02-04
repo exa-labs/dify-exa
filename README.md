@@ -1,6 +1,6 @@
 # Exa Plugin for Dify
 
-A [Dify](https://dify.ai) plugin that integrates [Exa's](https://exa.ai) AI-powered search API. Use it in Dify agents and workflows to search the web, extract page contents, and get AI-generated answers with cited sources.
+A [Dify](https://dify.ai) plugin that integrates [Exa's](https://exa.ai) AI-powered search API. Use it in Dify agents and workflows to search the web, extract page contents, get AI-generated answers, and build structured datasets with Websets.
 
 ## Tools
 
@@ -24,6 +24,26 @@ Ask a question and get an AI-generated answer with cited web sources.
 
 - Models: `exa` (standard) and `exa-pro` (higher quality)
 - Optionally include full source text
+
+### Exa Create Webset
+Create a Webset to find, verify, and enrich web entities at scale.
+
+- **Entity types**: company, person, article, research paper
+- **Criteria**: up to 5 evaluation criteria to filter results
+- **Enrichments**: extract structured data (CEO name, funding, website, etc.) from each result
+- Async processing — results are available once the Webset finishes
+
+### Exa Get Webset
+Check the status of a Webset and retrieve its items.
+
+- View processing progress (% complete, items found/analyzed)
+- Optionally include items with enrichment data
+
+### Exa List Webset Items
+List all items from a Webset with pagination.
+
+- Paginate through large result sets (up to 100 items per page)
+- Includes enrichment data for each item
 
 ## Setup
 

@@ -1,0 +1,50 @@
+identity:
+  name: exa_get_webset
+  author: "Exa Labs"
+  label:
+    en_US: Exa Get Webset
+    zh_Hans: Exa 获取 Webset
+    ja_JP: Exa Webset 取得
+    pt_BR: Exa Obter Webset
+description:
+  human:
+    en_US: Get the status and optionally the items of an existing Webset.
+    zh_Hans: 获取现有 Webset 的状态以及可选的结果项。
+    ja_JP: 既存のWebsetのステータスとオプションでアイテムを取得します。
+    pt_BR: Obtenha o status e opcionalmente os itens de um Webset existente.
+  llm: Retrieve the status of a Webset and optionally its items. Use this to check if a Webset has finished processing and to get results.
+parameters:
+  - name: webset_id
+    type: string
+    required: true
+    label:
+      en_US: Webset ID
+      zh_Hans: Webset ID
+      ja_JP: Webset ID
+      pt_BR: ID do Webset
+    human_description:
+      en_US: The ID of the Webset to retrieve.
+      zh_Hans: 要检索的 Webset 的 ID。
+      ja_JP: 取得するWebsetのID。
+      pt_BR: O ID do Webset a ser recuperado.
+    llm_description: The ID of the Webset to retrieve status and items for.
+    form: llm
+  - name: include_items
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Include Items
+      zh_Hans: 包含结果项
+      ja_JP: アイテムを含む
+      pt_BR: Incluir Itens
+    human_description:
+      en_US: Whether to include the Webset items in the response.
+      zh_Hans: 是否在响应中包含 Webset 结果项。
+      ja_JP: レスポンスにWebsetアイテムを含めるかどうか。
+      pt_BR: Se deve incluir os itens do Webset na resposta.
+    llm_description: When true, includes the Webset items (results) in the response.
+    form: form
+extra:
+  python:
+    source: tools/exa_get_webset.py

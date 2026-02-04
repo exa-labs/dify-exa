@@ -1,0 +1,136 @@
+identity:
+  name: exa_create_webset
+  author: "Exa Labs"
+  label:
+    en_US: Exa Create Webset
+    zh_Hans: Exa 创建 Webset
+    ja_JP: Exa Webset 作成
+    pt_BR: Exa Criar Webset
+description:
+  human:
+    en_US: Create a Webset to find, verify, and enrich web entities (companies, people, articles) at scale using Exa's async search pipeline.
+    zh_Hans: 创建 Webset，使用 Exa 的异步搜索管道大规模查找、验证和丰富网络实体（公司、人物、文章）。
+    ja_JP: Exaの非同期検索パイプラインを使用して、ウェブエンティティ（企業、人物、記事）を大規模に検索・検証・エンリッチするWebsetを作成します。
+    pt_BR: Crie um Webset para encontrar, verificar e enriquecer entidades web (empresas, pessoas, artigos) em escala usando o pipeline de busca assíncrono da Exa.
+  llm: Create an Exa Webset to find and enrich web entities at scale. Websets are async — they search, verify against criteria, and optionally enrich results with additional data. Use Get Webset or List Webset Items to retrieve results once processing completes.
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Search Query
+      zh_Hans: 搜索查询
+      ja_JP: 検索クエリ
+      pt_BR: Consulta de pesquisa
+    human_description:
+      en_US: "Describe what you're looking for (e.g. 'Marketing agencies based in the US that focus on consumer products')."
+      zh_Hans: 描述您要查找的内容（例如"专注于消费品的美国营销机构"）。
+      ja_JP: 探しているものを記述してください（例：「消費財に注力する米国のマーケティングエージェンシー」）。
+      pt_BR: "Descreva o que procura (ex: 'Agências de marketing nos EUA focadas em produtos de consumo')."
+    llm_description: Natural language search query describing what entities you're looking for. Be specific and descriptive (1-5000 chars).
+    form: llm
+  - name: count
+    type: number
+    required: false
+    default: 10
+    min: 1
+    label:
+      en_US: Result Count
+      zh_Hans: 结果数量
+      ja_JP: 結果数
+      pt_BR: Quantidade de resultados
+    human_description:
+      en_US: Number of results to find.
+      zh_Hans: 要查找的结果数量。
+      ja_JP: 検索する結果の数。
+      pt_BR: Número de resultados a encontrar.
+    llm_description: Number of matching entities to find.
+    form: llm
+  - name: entity_type
+    type: select
+    required: false
+    label:
+      en_US: Entity Type
+      zh_Hans: 实体类型
+      ja_JP: エンティティタイプ
+      pt_BR: Tipo de entidade
+    human_description:
+      en_US: The type of entity to search for (auto-detected if not specified).
+      zh_Hans: 要搜索的实体类型（未指定时自动检测）。
+      ja_JP: 検索するエンティティのタイプ（未指定の場合は自動検出）。
+      pt_BR: O tipo de entidade a pesquisar (detectado automaticamente se não especificado).
+    llm_description: The type of entity to search for. Auto-detected from query if not specified.
+    options:
+      - label:
+          en_US: Company
+          zh_Hans: 公司
+          ja_JP: 企業
+          pt_BR: Empresa
+        value: company
+      - label:
+          en_US: Person
+          zh_Hans: 人物
+          ja_JP: 人物
+          pt_BR: Pessoa
+        value: person
+      - label:
+          en_US: Article
+          zh_Hans: 文章
+          ja_JP: 記事
+          pt_BR: Artigo
+        value: article
+      - label:
+          en_US: Research Paper
+          zh_Hans: 研究论文
+          ja_JP: 研究論文
+          pt_BR: Artigo de Pesquisa
+        value: research_paper
+    form: form
+  - name: criteria
+    type: string
+    required: false
+    label:
+      en_US: Criteria
+      zh_Hans: 筛选条件
+      ja_JP: 基準
+      pt_BR: Critérios
+    human_description:
+      en_US: "Evaluation criteria for results, separated by newlines (e.g. 'Has more than 50 employees\nFounded after 2020'). Max 5 criteria."
+      zh_Hans: 结果的评估条件，用换行分隔（例如"员工超过50人\n2020年后成立"）。最多5个条件。
+      ja_JP: 結果の評価基準、改行で区切り（例：「従業員50人以上\n2020年以降設立」）。最大5件。
+      pt_BR: "Critérios de avaliação para resultados, separados por linhas (ex: 'Mais de 50 funcionários\nFundada após 2020'). Máx 5 critérios."
+    llm_description: "Evaluation criteria for filtering results. Separate multiple criteria with newlines. Each criterion describes a condition results must meet. Max 5 criteria."
+    form: llm
+  - name: enrichments
+    type: string
+    required: false
+    label:
+      en_US: Enrichments
+      zh_Hans: 数据丰富
+      ja_JP: エンリッチメント
+      pt_BR: Enriquecimentos
+    human_description:
+      en_US: "Data to extract from each result, separated by newlines (e.g. 'CEO name\nFunding amount\nWebsite URL'). Each line becomes an enrichment."
+      zh_Hans: 从每个结果中提取的数据，用换行分隔（例如"CEO姓名\n融资金额\n网站URL"）。每行成为一个数据丰富项。
+      ja_JP: 各結果から抽出するデータ、改行で区切り（例：「CEO名\n資金調達額\nウェブサイトURL」）。各行がエンリッチメントになります。
+      pt_BR: "Dados para extrair de cada resultado, separados por linhas (ex: 'Nome do CEO\nValor de investimento\nURL do site'). Cada linha vira um enriquecimento."
+    llm_description: "Data to extract from each result. Separate multiple enrichments with newlines. Each line describes a piece of information to extract (e.g. 'CEO name', 'funding amount', 'company website')."
+    form: llm
+  - name: title
+    type: string
+    required: false
+    label:
+      en_US: Webset Title
+      zh_Hans: Webset 标题
+      ja_JP: Webset タイトル
+      pt_BR: Título do Webset
+    human_description:
+      en_US: Optional display name for the Webset.
+      zh_Hans: Webset 的可选显示名称。
+      ja_JP: Websetのオプションの表示名。
+      pt_BR: Nome de exibição opcional para o Webset.
+    llm_description: Optional title for the Webset. Auto-generated if not provided.
+    form: llm
+extra:
+  python:
+    source: tools/exa_create_webset.py
