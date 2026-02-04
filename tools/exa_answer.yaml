@@ -1,0 +1,79 @@
+identity:
+  name: exa_answer
+  author: "Exa Labs"
+  label:
+    en_US: Exa Answer
+    zh_Hans: Exa 回答
+    ja_JP: Exa 回答
+    pt_BR: Resposta Exa
+description:
+  human:
+    en_US: Generate answers to questions with cited sources using Exa AI.
+    zh_Hans: 使用 Exa AI 生成带有引用来源的问题答案。
+    ja_JP: Exa AIを使用して、引用元付きの質問への回答を生成します。
+    pt_BR: Gere respostas para perguntas com fontes citadas usando Exa AI.
+  llm: Generate factual answers to questions with cited web sources using Exa's answer API.
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Query
+      zh_Hans: 查询
+      ja_JP: クエリ
+      pt_BR: Consulta
+    human_description:
+      en_US: The question you want answered with cited sources.
+      zh_Hans: 您想要获得带引用来源回答的问题。
+      ja_JP: 引用元付きで回答してほしい質問。
+      pt_BR: A pergunta que você deseja respondida com fontes citadas.
+    llm_description: The question to be answered with supporting evidence from the web.
+    form: llm
+  - name: text
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Include Source Text
+      zh_Hans: 包含源文本
+      ja_JP: ソーステキストを含む
+      pt_BR: Incluir Texto Fonte
+    human_description:
+      en_US: Whether to include full text of the source articles.
+      zh_Hans: 是否包含源文章的完整文本。
+      ja_JP: ソース記事の全文を含めるかどうか。
+      pt_BR: Se deve incluir o texto completo dos artigos de origem.
+    llm_description: Include the full text content of each source article in the results.
+    form: form
+  - name: model
+    type: select
+    required: false
+    default: exa
+    label:
+      en_US: Model
+      zh_Hans: 模型
+      ja_JP: モデル
+      pt_BR: Modelo
+    human_description:
+      en_US: The model to use for answering.
+      zh_Hans: 用于回答的模型。
+      ja_JP: 回答に使用するモデル。
+      pt_BR: O modelo a ser usado para responder.
+    llm_description: Specify which Exa model should generate the answer.
+    options:
+      - label:
+          en_US: Exa
+          zh_Hans: Exa
+          ja_JP: Exa
+          pt_BR: Exa
+        value: exa
+      - label:
+          en_US: Exa Pro
+          zh_Hans: Exa Pro
+          ja_JP: Exa Pro
+          pt_BR: Exa Pro
+        value: exa-pro
+    form: form
+extra:
+  python:
+    source: tools/exa_answer.py

@@ -1,0 +1,138 @@
+identity:
+  name: exa_contents
+  author: "Exa Labs"
+  label:
+    en_US: Exa Contents
+    zh_Hans: Exa 内容获取
+    ja_JP: Exa コンテンツ取得
+    pt_BR: Conteúdo Exa
+description:
+  human:
+    en_US: Retrieve the text content, summaries, and highlights from specific URLs using Exa's content extraction.
+    zh_Hans: 使用 Exa 的内容提取功能获取特定 URL 的文本内容、摘要和高亮。
+    ja_JP: Exaのコンテンツ抽出を使用して、特定のURLからテキスト、要約、ハイライトを取得します。
+    pt_BR: Recupere texto, resumos e destaques de URLs específicas usando a extração de conteúdo da Exa.
+  llm: Retrieve text content, summaries, and highlights from specific URLs using Exa's content extraction API. Useful for getting the full text of web pages.
+parameters:
+  - name: urls
+    type: string
+    required: true
+    label:
+      en_US: URLs
+      zh_Hans: URL 列表
+      ja_JP: URL リスト
+      pt_BR: URLs
+    human_description:
+      en_US: Comma-separated list of URLs to fetch content from.
+      zh_Hans: 用逗号分隔的 URL 列表。
+      ja_JP: コンテンツを取得するURLのカンマ区切りリスト。
+      pt_BR: Lista de URLs separadas por vírgulas para buscar conteúdo.
+    llm_description: A comma-separated list of URLs to extract content from.
+    form: llm
+  - name: text
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Include Text
+      zh_Hans: 包含文本
+      ja_JP: テキストを含む
+      pt_BR: Incluir Texto
+    human_description:
+      en_US: Whether to include the full text of each page.
+      zh_Hans: 是否包含每个页面的完整文本。
+      ja_JP: 各ページの全文を含めるかどうか。
+      pt_BR: Se deve incluir o texto completo de cada página.
+    llm_description: Include the full text content of each page.
+    form: form
+  - name: highlights
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Highlights
+      zh_Hans: 高亮
+      ja_JP: ハイライト
+      pt_BR: Destaques
+    human_description:
+      en_US: Whether to include highlighted relevant text snippets.
+      zh_Hans: 是否包含高亮的相关文本片段。
+      ja_JP: 関連するテキストのハイライトを含めるかどうか。
+      pt_BR: Se deve incluir trechos de texto relevantes destacados.
+    llm_description: Include highlighted relevant text snippets from each page.
+    form: form
+  - name: summary
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Summary
+      zh_Hans: 摘要
+      ja_JP: 要約
+      pt_BR: Resumo
+    human_description:
+      en_US: Whether to include an AI-generated summary of each page.
+      zh_Hans: 是否包含每个页面的 AI 生成摘要。
+      ja_JP: 各ページのAI生成要約を含めるかどうか。
+      pt_BR: Se deve incluir um resumo gerado por IA de cada página.
+    llm_description: Include an AI-generated summary of each page.
+    form: form
+  - name: livecrawl
+    type: select
+    required: false
+    default: never
+    label:
+      en_US: Live Crawl
+      zh_Hans: 实时爬取
+      ja_JP: ライブクロール
+      pt_BR: Crawl ao Vivo
+    human_description:
+      en_US: Control live crawling behavior for content freshness.
+      zh_Hans: 控制实时爬取行为以获取更新鲜的内容。
+      ja_JP: コンテンツの鮮度のためのライブクロール動作を制御します。
+      pt_BR: Controle o comportamento de crawl ao vivo para conteúdo mais recente.
+    llm_description: Control live crawling behavior.
+    options:
+      - label:
+          en_US: Never
+          zh_Hans: 从不
+          ja_JP: なし
+          pt_BR: Nunca
+        value: never
+      - label:
+          en_US: Fallback
+          zh_Hans: 回退
+          ja_JP: フォールバック
+          pt_BR: Fallback
+        value: fallback
+      - label:
+          en_US: Always
+          zh_Hans: 总是
+          ja_JP: 常に
+          pt_BR: Sempre
+        value: always
+      - label:
+          en_US: Auto
+          zh_Hans: 自动
+          ja_JP: 自動
+          pt_BR: Auto
+        value: auto
+    form: form
+  - name: subpages
+    type: number
+    required: false
+    label:
+      en_US: Subpages
+      zh_Hans: 子页面数
+      ja_JP: サブページ数
+      pt_BR: Subpáginas
+    human_description:
+      en_US: Number of subpages to include for each URL.
+      zh_Hans: 每个 URL 要包含的子页面数量。
+      ja_JP: 各URLに含めるサブページの数。
+      pt_BR: Número de subpáginas a incluir para cada URL.
+    llm_description: Number of subpages to crawl for each URL.
+    form: form
+extra:
+  python:
+    source: tools/exa_contents.py

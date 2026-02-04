@@ -1,0 +1,35 @@
+version: 0.0.1
+type: plugin
+author: "Exa Labs"
+name: exa
+label:
+  en_US: Exa
+  zh_Hans: Exa
+  ja_JP: Exa
+  pt_BR: Exa
+description:
+  en_US: AI-powered search, content extraction, similarity search, and question answering using Exa API.
+  zh_Hans: 使用 Exa API 进行 AI 驱动的搜索、内容提取、相似性搜索和问答。
+  ja_JP: Exa APIを使用したAI搭載の検索、コンテンツ抽出、類似検索、質問応答。
+  pt_BR: Pesquisa, extração de conteúdo, busca por similaridade e respostas a perguntas com IA usando a API Exa.
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission: {}
+plugins:
+  tools:
+    - provider/exa.yaml
+tags:
+  - search
+  - productivity
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+created_at: 2025-01-01T00:00:00Z
+privacy: PRIVACY.md
