@@ -1,0 +1,172 @@
+identity:
+  name: exa_company_search
+  author: "Exa Labs"
+  label:
+    en_US: Exa Company Search
+    zh_Hans: Exa 公司搜索
+    ja_JP: Exa 企業検索
+    pt_BR: Pesquisa de Empresas Exa
+description:
+  human:
+    en_US: Search for companies using Exa's fine-tuned retrieval model and entity-matching pipeline.
+    zh_Hans: 使用 Exa 的微调检索模型和实体匹配管道搜索公司。
+    ja_JP: Exaの微調整済み検索モデルとエンティティマッチングパイプラインを使用して企業を検索します。
+    pt_BR: Pesquise empresas usando o modelo de recuperação ajustado e pipeline de correspondência de entidades da Exa.
+  llm: Search for companies using Exa's specialized company search with fine-tuned retrieval and entity matching. Returns company profiles, LinkedIn pages, and related information.
+output_schema:
+  type: object
+  properties:
+    results:
+      type: array
+      description: Company search results
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+          url:
+            type: string
+          score:
+            type: number
+          text:
+            type: string
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Search Query
+      zh_Hans: 搜索查询
+      ja_JP: 検索クエリ
+      pt_BR: Consulta de pesquisa
+    human_description:
+      en_US: "Describe the company or type of company you're looking for (e.g. 'AI startups in San Francisco', 'enterprise SaaS companies')."
+      zh_Hans: 描述您要查找的公司或公司类型（例如"旧金山的AI初创公司"、"企业级SaaS公司"）。
+      ja_JP: 探している企業や企業タイプを記述してください（例：「サンフランシスコのAIスタートアップ」、「エンタープライズSaaS企業」）。
+      pt_BR: "Descreva a empresa ou tipo de empresa que procura (ex: 'startups de IA em São Paulo', 'empresas de SaaS corporativo')."
+    llm_description: Describe the company or type of company to search for.
+    form: llm
+  - name: num_results
+    type: number
+    required: false
+    default: 10
+    min: 1
+    max: 100
+    label:
+      en_US: Number of Results
+      zh_Hans: 结果数量
+      ja_JP: 結果数
+      pt_BR: Número de resultados
+    human_description:
+      en_US: The maximum number of results to return (1-100).
+      zh_Hans: 要返回的最大结果数（1-100）。
+      ja_JP: 返す結果の最大数（1〜100）。
+      pt_BR: O número máximo de resultados a retornar (1-100).
+    llm_description: The maximum number of company results to return, from 1 to 100.
+    form: form
+  - name: include_domains
+    type: string
+    required: false
+    label:
+      en_US: Include Domains
+      zh_Hans: 包含域名
+      ja_JP: 含めるドメイン
+      pt_BR: Incluir domínios
+    human_description:
+      en_US: Comma-separated list of domains to include in results.
+      zh_Hans: 要在结果中包含的域名，用逗号分隔。
+      ja_JP: 結果に含めるドメインのカンマ区切りリスト。
+      pt_BR: Lista de domínios separados por vírgulas para incluir nos resultados.
+    llm_description: Comma-separated list of domains to restrict results to.
+    form: llm
+  - name: text_contents
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Include Text Contents
+      zh_Hans: 包含文本内容
+      ja_JP: テキスト内容を含める
+      pt_BR: Incluir conteúdo de texto
+    human_description:
+      en_US: Whether to include the text contents from each result.
+      zh_Hans: 是否包含每个结果的文本内容。
+      ja_JP: 各結果のテキスト内容を含めるかどうか。
+      pt_BR: Se deve incluir o conteúdo de texto de cada resultado.
+    llm_description: When true, the response will include the text content of each company page.
+    form: form
+  - name: highlights
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Highlights
+      zh_Hans: 高亮
+      ja_JP: ハイライト
+      pt_BR: Destaques
+    human_description:
+      en_US: Whether to include highlighted relevant text snippets.
+      zh_Hans: 是否包含高亮的相关文本片段。
+      ja_JP: 関連するテキストのハイライトを含めるかどうか。
+      pt_BR: Se deve incluir trechos de texto relevantes destacados.
+    llm_description: When true, relevant sections of text will be highlighted in the results.
+    form: form
+  - name: summary
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Summary
+      zh_Hans: 摘要
+      ja_JP: 要約
+      pt_BR: Resumo
+    human_description:
+      en_US: Whether to include an AI-generated summary of each result.
+      zh_Hans: 是否包含每个结果的 AI 生成摘要。
+      ja_JP: 各結果のAI生成要約を含めるかどうか。
+      pt_BR: Se deve incluir um resumo gerado por IA de cada resultado.
+    llm_description: When true, an AI-generated summary of each company result will be included.
+    form: form
+  - name: livecrawl
+    type: select
+    required: false
+    label:
+      en_US: Live Crawl
+      zh_Hans: 实时爬取
+      ja_JP: ライブクロール
+      pt_BR: Crawl ao Vivo
+    human_description:
+      en_US: Control live crawling behavior for fresher content.
+      zh_Hans: 控制实时爬取行为以获取更新鲜的内容。
+      ja_JP: より新鮮なコンテンツのためのライブクロール動作を制御します。
+      pt_BR: Controle o comportamento de crawl ao vivo para conteúdo mais recente.
+    llm_description: Control live crawling behavior for content freshness.
+    options:
+      - label:
+          en_US: Never
+          zh_Hans: 从不
+          ja_JP: なし
+          pt_BR: Nunca
+        value: never
+      - label:
+          en_US: Fallback
+          zh_Hans: 回退
+          ja_JP: フォールバック
+          pt_BR: Fallback
+        value: fallback
+      - label:
+          en_US: Always
+          zh_Hans: 总是
+          ja_JP: 常に
+          pt_BR: Sempre
+        value: always
+      - label:
+          en_US: Auto
+          zh_Hans: 自动
+          ja_JP: 自動
+          pt_BR: Auto
+        value: auto
+    form: form
+extra:
+  python:
+    source: tools/exa_company_search.py
