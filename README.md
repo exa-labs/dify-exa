@@ -7,15 +7,15 @@ A [Dify](https://dify.ai) plugin that integrates [Exa's](https://exa.ai) AI-powe
 ### Exa Search
 Search the web with multiple modes and category filters.
 
-- **Search types**: `auto`, `neural`, `keyword`, `fast`, `deep`
-- **Categories**: company, people, news, research paper, PDF, GitHub, tweet, personal site, LinkedIn profile, financial report
-- **Filters**: domain include/exclude, date range, text include/exclude
-- **Content options**: text extraction, highlights, summaries, live crawl
+- **Search types**: `auto` (recommended), `neural`, `fast`, `deep`
+- **Categories**: company, people, news, research paper, tweet, personal site, financial report
+- **Filters**: domain include/exclude, date range (ISO 8601), text include/exclude
+- **Content options**: text extraction, highlights, summaries, cache control via `maxAgeHours`
 
 ### Exa Contents
 Extract text, highlights, and summaries from specific URLs.
 
-- Supports live crawling for fresh content
+- Cache control via `maxAgeHours` (0 = always livecrawl, -1 = cached only)
 - Subpage crawling
 - AI-generated page summaries
 
