@@ -77,46 +77,20 @@ parameters:
       pt_BR: Se deve incluir um resumo gerado por IA de cada página.
     llm_description: Include an AI-generated summary of each page.
     form: form
-  - name: livecrawl
-    type: select
+  - name: max_age_hours
+    type: number
     required: false
-    default: never
     label:
-      en_US: Live Crawl
-      zh_Hans: 实时爬取
-      ja_JP: ライブクロール
-      pt_BR: Crawl ao Vivo
+      en_US: Max Cache Age (hours)
+      zh_Hans: 最大缓存时长（小时）
+      ja_JP: 最大キャッシュ時間（時間）
+      pt_BR: Idade máxima do cache (horas)
     human_description:
-      en_US: Control live crawling behavior for content freshness.
-      zh_Hans: 控制实时爬取行为以获取更新鲜的内容。
-      ja_JP: コンテンツの鮮度のためのライブクロール動作を制御します。
-      pt_BR: Controle o comportamento de crawl ao vivo para conteúdo mais recente.
-    llm_description: Control live crawling behavior.
-    options:
-      - label:
-          en_US: Never
-          zh_Hans: 从不
-          ja_JP: なし
-          pt_BR: Nunca
-        value: never
-      - label:
-          en_US: Fallback
-          zh_Hans: 回退
-          ja_JP: フォールバック
-          pt_BR: Fallback
-        value: fallback
-      - label:
-          en_US: Always
-          zh_Hans: 总是
-          ja_JP: 常に
-          pt_BR: Sempre
-        value: always
-      - label:
-          en_US: Auto
-          zh_Hans: 自动
-          ja_JP: 自動
-          pt_BR: Auto
-        value: auto
+      en_US: "Controls livecrawl behavior: 0 = always livecrawl, -1 = never livecrawl, positive number = use cache if fresher than this many hours. Omit for default."
+      zh_Hans: "控制实时爬取行为：0 = 始终实时爬取，-1 = 从不实时爬取，正数 = 如果缓存在此小时数内则使用缓存。"
+      ja_JP: "ライブクロール動作を制御：0 = 常にライブクロール、-1 = ライブクロールしない、正の数 = 指定時間内のキャッシュがあれば使用。"
+      pt_BR: "Controla o comportamento de livecrawl: 0 = sempre livecrawl, -1 = nunca livecrawl, número positivo = usar cache se mais recente."
+    llm_description: "Controls livecrawl behavior. 0 = always livecrawl, -1 = never livecrawl, positive integer = use cache if fresher than this many hours. Omit for default."
     form: form
   - name: subpages
     type: number

@@ -24,7 +24,7 @@ class ExaSearchTool(Tool):
         text_contents = tool_parameters.get("text_contents", False)
         highlights = tool_parameters.get("highlights", False)
         summary = tool_parameters.get("summary", False)
-        livecrawl = tool_parameters.get("livecrawl")
+        max_age_hours = tool_parameters.get("max_age_hours")
         include_text = tool_parameters.get("include_text")
         exclude_text = tool_parameters.get("exclude_text")
         category = tool_parameters.get("category")
@@ -55,10 +55,6 @@ class ExaSearchTool(Tool):
             payload["includeText"] = [include_text]
         if exclude_text:
             payload["excludeText"] = [exclude_text]
-        if livecrawl:
-            payload["livecrawl"] = livecrawl
-        if subpages is not None:
-            payload["subpages"] = int(subpages)
 
         contents = {}
         if text_contents:
@@ -67,6 +63,10 @@ class ExaSearchTool(Tool):
             contents["highlights"] = True
         if summary:
             contents["summary"] = True
+        if max_age_hours is not None:
+            contents["maxAgeHours"] = int(max_age_hours)
+        if subpages is not None:
+            contents["subpages"] = int(subpages)
         if contents:
             payload["contents"] = contents
 

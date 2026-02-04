@@ -21,7 +21,7 @@ class ExaContentsTool(Tool):
         text = tool_parameters.get("text", True)
         highlights = tool_parameters.get("highlights", False)
         summary = tool_parameters.get("summary", False)
-        livecrawl = tool_parameters.get("livecrawl", "never")
+        max_age_hours = tool_parameters.get("max_age_hours")
         subpages = tool_parameters.get("subpages")
 
         payload: dict[str, Any] = {
@@ -35,13 +35,12 @@ class ExaContentsTool(Tool):
             contents["highlights"] = True
         if summary:
             contents["summary"] = True
+        if max_age_hours is not None:
+            contents["maxAgeHours"] = int(max_age_hours)
+        if subpages is not None:
+            contents["subpages"] = int(subpages)
         if contents:
             payload["contents"] = contents
-
-        if livecrawl and livecrawl != "never":
-            payload["livecrawl"] = livecrawl
-        if subpages is not None:
-            payload["subpages"] = int(subpages)
 
         headers = {
             "x-api-key": api_key,

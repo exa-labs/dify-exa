@@ -64,11 +64,11 @@ parameters:
       ja_JP: 検索タイプ
       pt_BR: Tipo de pesquisa
     human_description:
-      en_US: "The type of search: auto, neural (semantic), keyword (traditional), fast (low latency), or deep (comprehensive)."
-      zh_Hans: 搜索类型：自动、神经（语义）、关键词（传统）、快速（低延迟）或深度（全面）。
-      ja_JP: 検索タイプ：自動、ニューラル（意味的）、キーワード（従来型）、高速（低遅延）、ディープ（包括的）。
-      pt_BR: "Tipo de pesquisa: auto, neural (semântica), keyword (tradicional), fast (baixa latência) ou deep (abrangente)."
-    llm_description: "The type of search: auto intelligently combines methods, neural uses semantic search, keyword uses traditional search, fast prioritizes speed, deep provides comprehensive results."
+      en_US: "The type of search: auto (recommended, combines methods), neural (semantic), fast (low latency), or deep (comprehensive with query expansion)."
+      zh_Hans: 搜索类型：自动（推荐，组合方法）、神经（语义）、快速（低延迟）或深度（带查询扩展的全面搜索）。
+      ja_JP: 検索タイプ：自動（推奨、手法を組み合わせ）、ニューラル（意味的）、高速（低遅延）、ディープ（クエリ拡張による包括的検索）。
+      pt_BR: "Tipo de pesquisa: auto (recomendado, combina métodos), neural (semântica), fast (baixa latência) ou deep (abrangente com expansão de consulta)."
+    llm_description: "The type of search: auto (default, intelligently combines methods), neural (semantic/embeddings-based), fast (lowest latency), deep (comprehensive with query expansion and detailed context)."
     options:
       - label:
           en_US: Auto
@@ -82,12 +82,6 @@ parameters:
           ja_JP: ニューラル
           pt_BR: Neural
         value: neural
-      - label:
-          en_US: Keyword
-          zh_Hans: 关键词
-          ja_JP: キーワード
-          pt_BR: Palavra-chave
-        value: keyword
       - label:
           en_US: Fast
           zh_Hans: 快速
@@ -153,18 +147,6 @@ parameters:
           pt_BR: Notícias
         value: news
       - label:
-          en_US: PDF
-          zh_Hans: PDF
-          ja_JP: PDF
-          pt_BR: PDF
-        value: pdf
-      - label:
-          en_US: GitHub
-          zh_Hans: GitHub
-          ja_JP: GitHub
-          pt_BR: GitHub
-        value: github
-      - label:
           en_US: Tweet
           zh_Hans: 推文
           ja_JP: ツイート
@@ -176,12 +158,6 @@ parameters:
           ja_JP: 個人サイト
           pt_BR: Site Pessoal
         value: personal site
-      - label:
-          en_US: LinkedIn Profile
-          zh_Hans: LinkedIn 主页
-          ja_JP: LinkedInプロフィール
-          pt_BR: Perfil LinkedIn
-        value: linkedin profile
       - label:
           en_US: Financial Report
           zh_Hans: 财务报告
@@ -234,11 +210,11 @@ parameters:
       ja_JP: 公開開始日
       pt_BR: Data de publicação inicial
     human_description:
-      en_US: Only include results published after this date (YYYY-MM-DD).
-      zh_Hans: 仅包含在此日期之后发布的结果（YYYY-MM-DD）。
-      ja_JP: この日付以降に公開された結果のみ含める（YYYY-MM-DD）。
-      pt_BR: Incluir apenas resultados publicados após esta data (AAAA-MM-DD).
-    llm_description: Only include results published after this date in YYYY-MM-DD format.
+      en_US: Only include results published after this date (ISO 8601, e.g. 2025-01-01T00:00:00.000Z).
+      zh_Hans: 仅包含在此日期之后发布的结果（ISO 8601 格式，如 2025-01-01T00:00:00.000Z）。
+      ja_JP: この日付以降に公開された結果のみ含める（ISO 8601形式、例：2025-01-01T00:00:00.000Z）。
+      pt_BR: Incluir apenas resultados publicados após esta data (ISO 8601, ex. 2025-01-01T00:00:00.000Z).
+    llm_description: Only include results published after this date in ISO 8601 format (e.g. 2025-01-01T00:00:00.000Z).
     form: llm
   - name: end_published_date
     type: string
@@ -249,11 +225,11 @@ parameters:
       ja_JP: 公開終了日
       pt_BR: Data de publicação final
     human_description:
-      en_US: Only include results published before this date (YYYY-MM-DD).
-      zh_Hans: 仅包含在此日期之前发布的结果（YYYY-MM-DD）。
-      ja_JP: この日付以前に公開された結果のみ含める（YYYY-MM-DD）。
-      pt_BR: Incluir apenas resultados publicados antes desta data (AAAA-MM-DD).
-    llm_description: Only include results published before this date in YYYY-MM-DD format.
+      en_US: Only include results published before this date (ISO 8601, e.g. 2025-12-31T00:00:00.000Z).
+      zh_Hans: 仅包含在此日期之前发布的结果（ISO 8601 格式，如 2025-12-31T00:00:00.000Z）。
+      ja_JP: この日付以前に公開された結果のみ含める（ISO 8601形式、例：2025-12-31T00:00:00.000Z）。
+      pt_BR: Incluir apenas resultados publicados antes desta data (ISO 8601, ex. 2025-12-31T00:00:00.000Z).
+    llm_description: Only include results published before this date in ISO 8601 format (e.g. 2025-12-31T00:00:00.000Z).
     form: llm
   - name: use_autoprompt
     type: boolean
@@ -319,45 +295,20 @@ parameters:
       pt_BR: Se deve incluir um resumo gerado por IA de cada resultado.
     llm_description: When true, an AI-generated summary of each result will be included.
     form: form
-  - name: livecrawl
-    type: select
+  - name: max_age_hours
+    type: number
     required: false
     label:
-      en_US: Live Crawl
-      zh_Hans: 实时爬取
-      ja_JP: ライブクロール
-      pt_BR: Crawl ao Vivo
+      en_US: Max Cache Age (hours)
+      zh_Hans: 最大缓存时长（小时）
+      ja_JP: 最大キャッシュ時間（時間）
+      pt_BR: Idade máxima do cache (horas)
     human_description:
-      en_US: Control live crawling behavior for fresher content.
-      zh_Hans: 控制实时爬取行为以获取更新鲜的内容。
-      ja_JP: より新鮮なコンテンツのためのライブクロール動作を制御します。
-      pt_BR: Controle o comportamento de crawl ao vivo para conteúdo mais recente.
-    llm_description: Control live crawling behavior for content freshness.
-    options:
-      - label:
-          en_US: Never
-          zh_Hans: 从不
-          ja_JP: なし
-          pt_BR: Nunca
-        value: never
-      - label:
-          en_US: Fallback
-          zh_Hans: 回退
-          ja_JP: フォールバック
-          pt_BR: Fallback
-        value: fallback
-      - label:
-          en_US: Always
-          zh_Hans: 总是
-          ja_JP: 常に
-          pt_BR: Sempre
-        value: always
-      - label:
-          en_US: Auto
-          zh_Hans: 自动
-          ja_JP: 自動
-          pt_BR: Auto
-        value: auto
+      en_US: "Controls livecrawl behavior: 0 = always livecrawl, -1 = never livecrawl, positive number = use cache if fresher than this many hours. Omit for default (fallback to livecrawl only if no cache)."
+      zh_Hans: "控制实时爬取行为：0 = 始终实时爬取，-1 = 从不实时爬取，正数 = 如果缓存在此小时数内则使用缓存。不填则使用默认行为。"
+      ja_JP: "ライブクロール動作を制御：0 = 常にライブクロール、-1 = ライブクロールしない、正の数 = 指定時間内のキャッシュがあれば使用。省略でデフォルト動作。"
+      pt_BR: "Controla o comportamento de livecrawl: 0 = sempre livecrawl, -1 = nunca livecrawl, número positivo = usar cache se mais recente que estas horas. Omita para padrão."
+    llm_description: "Controls livecrawl behavior. 0 = always livecrawl (freshest but slower), -1 = never livecrawl (cached only), positive integer = use cache if fresher than this many hours. Omit for default fallback behavior."
     form: form
   - name: include_text
     type: string
