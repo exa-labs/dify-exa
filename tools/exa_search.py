@@ -73,6 +73,7 @@ class ExaSearchTool(Tool):
         headers = {
             "x-api-key": api_key,
             "Content-Type": "application/json",
+            "x-exa-integration": "dify",
         }
 
         response = requests.post("https://api.exa.ai/search", json=payload, headers=headers)

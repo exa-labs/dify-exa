@@ -21,6 +21,7 @@ class ExaGetWebsetTool(Tool):
         headers = {
             "x-api-key": api_key,
             "Content-Type": "application/json",
+            "x-exa-integration": "dify",
         }
 
         params = {}

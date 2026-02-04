@@ -48,6 +48,7 @@ class ExaCreateWebsetTool(Tool):
         headers = {
             "x-api-key": api_key,
             "Content-Type": "application/json",
+            "x-exa-integration": "dify",
         }
 
         response = requests.post(WEBSETS_BASE_URL, json=payload, headers=headers)

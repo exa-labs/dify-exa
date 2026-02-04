@@ -45,6 +45,7 @@ class ExaContentsTool(Tool):
         headers = {
             "x-api-key": api_key,
             "Content-Type": "application/json",
+            "x-exa-integration": "dify",
         }
 
         response = requests.post("https://api.exa.ai/contents", json=payload, headers=headers)
