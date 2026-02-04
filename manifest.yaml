@@ -8,10 +8,10 @@ label:
   ja_JP: Exa
   pt_BR: Exa
 description:
-  en_US: AI-powered web search, company search, people search, content extraction, and question answering using Exa API.
-  zh_Hans: 使用 Exa API 进行 AI 驱动的网页搜索、公司搜索、人物搜索、内容提取和问答。
-  ja_JP: Exa APIを使用したAI搭載のウェブ検索、企業検索、人物検索、コンテンツ抽出、質問応答。
-  pt_BR: Pesquisa web, pesquisa de empresas, pesquisa de pessoas, extração de conteúdo e respostas com IA usando a API Exa.
+  en_US: AI-powered search (web, company, people), content extraction, and question answering using Exa API.
+  zh_Hans: 使用 Exa API 进行 AI 驱动的搜索（网页、公司、人物）、内容提取和问答。
+  ja_JP: Exa APIを使用したAI搭載の検索（ウェブ、企業、人物）、コンテンツ抽出、質問応答。
+  pt_BR: Pesquisa com IA (web, empresas, pessoas), extração de conteúdo e respostas usando a API Exa.
 icon: icon.svg
 resource:
   memory: 268435456

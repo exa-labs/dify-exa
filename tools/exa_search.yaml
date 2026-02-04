@@ -12,7 +12,7 @@ description:
     zh_Hans: 使用 Exa 的 AI 搜索引擎在网络上执行搜索，查找相关内容和文档。
     ja_JP: ExaのAI検索エンジンを使用してウェブ上で検索を実行し、関連コンテンツやドキュメントを見つけます。
     pt_BR: Realize pesquisas na web com IA usando o Exa para encontrar conteúdo e documentos relevantes.
-  llm: Search the web using Exa's AI-powered search engine to find relevant content, websites, and documents. Supports neural, keyword, fast, and deep search modes.
+  llm: Search the web using Exa's AI-powered search engine to find relevant content, websites, and documents. Supports neural, keyword, fast, and deep search modes. Use the category filter for specialized searches like company or people search.
 output_schema:
   type: object
   properties:
@@ -188,6 +188,12 @@ parameters:
           ja_JP: 財務報告
           pt_BR: Relatório Financeiro
         value: financial report
+      - label:
+          en_US: People
+          zh_Hans: 人物
+          ja_JP: 人物
+          pt_BR: Pessoas
+        value: people
     form: form
   - name: include_domains
     type: string
