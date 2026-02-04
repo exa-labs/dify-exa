@@ -6,7 +6,7 @@ This plugin sends user-provided queries and parameters to the Exa API (https://a
 
 ## Third-Party Services
 
-This plugin communicates with the Exa API. Please refer to Exa's privacy policy at https://exa.ai/privacy for details on how Exa handles your data.
+This plugin communicates with the Exa API. Please refer to Exa's privacy policy at https://exa.ai/privacy-policy for details on how Exa handles your data.
 
 ## Credentials
 
