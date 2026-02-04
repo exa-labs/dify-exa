@@ -22,6 +22,7 @@ class ExaListWebsetItemsTool(Tool):
         headers = {
             "x-api-key": api_key,
             "Content-Type": "application/json",
+            "x-exa-integration": "dify",
         }
 
         params: dict[str, Any] = {"limit": limit}
