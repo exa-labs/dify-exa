@@ -40,7 +40,7 @@ parameters:
       pt_BR: Incluir Itens
     human_description:
       en_US: Whether to include the Webset items in the response.
-      zh_Hans: 是否在响应中包含 Webset 结果项。
+      zh_Hans: 是否同时返回 Webset 中的结果。
       ja_JP: レスポンスにWebsetアイテムを含めるかどうか。
       pt_BR: Se deve incluir os itens do Webset na resposta.
     llm_description: When true, includes the Webset items (results) in the response.

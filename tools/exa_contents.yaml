@@ -51,12 +51,12 @@ parameters:
     default: false
     label:
       en_US: Highlights
-      zh_Hans: 高亮
+      zh_Hans: 关键片段
       ja_JP: ハイライト
       pt_BR: Destaques
     human_description:
       en_US: Whether to include highlighted relevant text snippets.
-      zh_Hans: 是否包含高亮的相关文本片段。
+      zh_Hans: 是否返回与查询相关的关键文本片段。
       ja_JP: 関連するテキストのハイライトを含めるかどうか。
       pt_BR: Se deve incluir trechos de texto relevantes destacados.
     llm_description: Include highlighted relevant text snippets from each page.

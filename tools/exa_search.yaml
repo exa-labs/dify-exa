@@ -9,7 +9,7 @@ identity:
 description:
   human:
     en_US: Perform AI-powered search on the web using Exa to find relevant content and documents.
-    zh_Hans: 使用 Exa 的 AI 搜索引擎在网络上执行搜索，查找相关内容和文档。
+    zh_Hans: 使用 Exa AI 搜索网页，查找相关内容和文档。
     ja_JP: ExaのAI検索エンジンを使用してウェブ上で検索を実行し、関連コンテンツやドキュメントを見つけます。
     pt_BR: Realize pesquisas na web com IA usando o Exa para encontrar conteúdo e documentos relevantes.
   llm: Search the web using Exa's AI-powered search engine to find relevant content, websites, and documents. Supports neural, keyword, fast, and deep search modes. Use the category filter for specialized searches like company or people search.
@@ -49,7 +49,7 @@ parameters:
       pt_BR: Consulta de pesquisa
     human_description:
       en_US: The search query to find relevant information on the web.
-      zh_Hans: 用于在网络上查找相关信息的搜索查询。
+      zh_Hans: 要搜索的内容。
       ja_JP: ウェブ上で関連情報を見つけるための検索クエリ。
       pt_BR: A consulta de pesquisa para encontrar informações relevantes na web.
     llm_description: The search query to find relevant information on the web.
@@ -65,7 +65,7 @@ parameters:
       pt_BR: Tipo de pesquisa
     human_description:
       en_US: "The type of search: auto (recommended, combines methods), neural (semantic), fast (low latency), or deep (comprehensive with query expansion)."
-      zh_Hans: 搜索类型：自动（推荐，组合方法）、神经（语义）、快速（低延迟）或深度（带查询扩展的全面搜索）。
+      zh_Hans: "搜索类型：自动（推荐，智能组合多种方式）、语义（基于语义理解）、快速（低延迟）或深度（扩展查询，全面搜索）。"
       ja_JP: 検索タイプ：自動（推奨、手法を組み合わせ）、ニューラル（意味的）、高速（低遅延）、ディープ（クエリ拡張による包括的検索）。
       pt_BR: "Tipo de pesquisa: auto (recomendado, combina métodos), neural (semântica), fast (baixa latência) ou deep (abrangente com expansão de consulta)."
     llm_description: "The type of search: auto (default, intelligently combines methods), neural (semantic/embeddings-based), fast (lowest latency), deep (comprehensive with query expansion and detailed context)."
@@ -78,7 +78,7 @@ parameters:
         value: auto
       - label:
           en_US: Neural
-          zh_Hans: 神经
+          zh_Hans: 语义
           ja_JP: ニューラル
           pt_BR: Neural
         value: neural
@@ -123,7 +123,7 @@ parameters:
       pt_BR: Categoria
     human_description:
       en_US: Focus the search on a specific data category.
-      zh_Hans: 将搜索集中在特定数据类别上。
+      zh_Hans: 限定搜索的数据类别。
       ja_JP: 特定のデータカテゴリに検索を集中させます。
       pt_BR: Concentre a pesquisa em uma categoria de dados específica.
     llm_description: Focus the search on a specific data category.
@@ -242,7 +242,7 @@ parameters:
       pt_BR: Usar Autoprompt
     human_description:
       en_US: Whether to use Exa's prompt engineering to improve the query.
-      zh_Hans: 是否使用 Exa 的提示工程来改进查询。
+      zh_Hans: 是否让 Exa 自动优化搜索词以提升结果质量。
       ja_JP: Exaのプロンプトエンジニアリングを使用してクエリを改善するかどうか。
       pt_BR: Se deve usar a engenharia de prompt da Exa para melhorar a consulta.
     llm_description: When true, Exa will automatically rewrite the query to improve search results.
@@ -269,12 +269,12 @@ parameters:
     default: false
     label:
       en_US: Highlights
-      zh_Hans: 高亮
+      zh_Hans: 关键片段
       ja_JP: ハイライト
       pt_BR: Destaques
     human_description:
       en_US: Whether to include highlighted relevant text snippets.
-      zh_Hans: 是否包含高亮的相关文本片段。
+      zh_Hans: 是否返回与查询相关的关键文本片段。
       ja_JP: 関連するテキストのハイライトを含めるかどうか。
       pt_BR: Se deve incluir trechos de texto relevantes destacados.
     llm_description: When true, relevant sections of text will be highlighted in the results.
@@ -315,12 +315,12 @@ parameters:
     required: false
     label:
       en_US: Include Text Filter
-      zh_Hans: 包含文本过滤
+      zh_Hans: 必含关键词
       ja_JP: テキスト包含フィルター
       pt_BR: Filtro de inclusão de texto
     human_description:
       en_US: A string that must appear in the webpage text of results (up to 5 words).
-      zh_Hans: 必须出现在结果网页文本中的字符串（最多5个单词）。
+      zh_Hans: 结果页面中必须包含的文本（最多 5 个词）。
       ja_JP: 結果のウェブページテキストに含まれなければならない文字列（最大5語）。
       pt_BR: Uma string que deve aparecer no texto da página dos resultados (até 5 palavras).
     llm_description: A string that must be present in the webpage text of results. Up to 5 words.
@@ -330,12 +330,12 @@ parameters:
     required: false
     label:
       en_US: Exclude Text Filter
-      zh_Hans: 排除文本过滤
+      zh_Hans: 排除关键词
       ja_JP: テキスト除外フィルター
       pt_BR: Filtro de exclusão de texto
     human_description:
       en_US: A string that must not appear in the webpage text of results (up to 5 words).
-      zh_Hans: 不能出现在结果网页文本中的字符串（最多5个单词）。
+      zh_Hans: 结果页面中不能出现的文本（最多 5 个词）。
       ja_JP: 結果のウェブページテキストに含まれてはならない文字列（最大5語）。
       pt_BR: Uma string que não deve aparecer no texto da página dos resultados (até 5 palavras).
     llm_description: A string that must not be present in the webpage text of results. Up to 5 words.

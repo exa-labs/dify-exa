@@ -28,7 +28,7 @@ credentials_for_provider:
       pt_BR: Por favor, insira sua chave da API Exa
     help:
       en_US: Get your API key from the Exa Dashboard at https://dashboard.exa.ai/api-keys
-      zh_Hans: 请在 Exa 仪表板 https://dashboard.exa.ai/api-keys 获取你的 API Key
+      zh_Hans: 在 Exa 控制台获取 API Key：https://dashboard.exa.ai/api-keys
       ja_JP: https://dashboard.exa.ai/api-keys のExaダッシュボードからAPIキーを取得してください
       pt_BR: Obtenha sua chave da API no painel Exa em https://dashboard.exa.ai/api-keys
     url: https://dashboard.exa.ai/api-keys

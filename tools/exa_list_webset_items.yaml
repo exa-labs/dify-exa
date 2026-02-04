@@ -3,13 +3,13 @@ identity:
   author: "Exa Labs"
   label:
     en_US: Exa List Webset Items
-    zh_Hans: Exa 列出 Webset 项目
+    zh_Hans: Exa Webset 结果列表
     ja_JP: Exa Webset アイテム一覧
     pt_BR: Exa Listar Itens do Webset
 description:
   human:
     en_US: List all items (results) from a Webset with pagination support.
-    zh_Hans: 列出 Webset 中的所有项目（结果），支持分页。
+    zh_Hans: 分页查看 Webset 中的所有结果。
     ja_JP: Websetからすべてのアイテム（結果）をページネーション付きで一覧表示します。
     pt_BR: Liste todos os itens (resultados) de um Webset com suporte a paginação.
   llm: List items from a Webset with pagination. Use this to retrieve all results from a completed Webset, especially when there are more than 100 items.

@@ -9,7 +9,7 @@ identity:
 description:
   human:
     en_US: Create a Webset to find, verify, and enrich web entities (companies, people, articles) at scale using Exa's async search pipeline.
-    zh_Hans: 创建 Webset，使用 Exa 的异步搜索管道大规模查找、验证和丰富网络实体（公司、人物、文章）。
+    zh_Hans: 创建 Webset，使用 Exa 批量查找、验证并补充网络实体（公司、人物、文章）的信息，异步处理。
     ja_JP: Exaの非同期検索パイプラインを使用して、ウェブエンティティ（企業、人物、記事）を大規模に検索・検証・エンリッチするWebsetを作成します。
     pt_BR: Crie um Webset para encontrar, verificar e enriquecer entidades web (empresas, pessoas, artigos) em escala usando o pipeline de busca assíncrono da Exa.
   llm: Create an Exa Webset to find and enrich web entities at scale. Websets are async — they search, verify against criteria, and optionally enrich results with additional data. Use Get Webset or List Webset Items to retrieve results once processing completes.
@@ -56,7 +56,7 @@ parameters:
       pt_BR: Tipo de entidade
     human_description:
       en_US: The type of entity to search for (auto-detected if not specified).
-      zh_Hans: 要搜索的实体类型（未指定时自动检测）。
+      zh_Hans: 要搜索的实体类型（不指定则自动检测）。
       ja_JP: 検索するエンティティのタイプ（未指定の場合は自動検出）。
       pt_BR: O tipo de entidade a pesquisar (detectado automaticamente se não especificado).
     llm_description: The type of entity to search for. Auto-detected from query if not specified.
@@ -106,12 +106,12 @@ parameters:
     required: false
     label:
       en_US: Enrichments
-      zh_Hans: 数据丰富
+      zh_Hans: 补充字段
       ja_JP: エンリッチメント
       pt_BR: Enriquecimentos
     human_description:
       en_US: "Data to extract from each result, separated by newlines (e.g. 'CEO name\nFunding amount\nWebsite URL'). Each line becomes an enrichment."
-      zh_Hans: 从每个结果中提取的数据，用换行分隔（例如"CEO姓名\n融资金额\n网站URL"）。每行成为一个数据丰富项。
+      zh_Hans: 需要从每个结果中提取的数据字段，每行一个（例如"CEO 姓名\n融资金额\n官网地址"）。
       ja_JP: 各結果から抽出するデータ、改行で区切り（例：「CEO名\n資金調達額\nウェブサイトURL」）。各行がエンリッチメントになります。
       pt_BR: "Dados para extrair de cada resultado, separados por linhas (ex: 'Nome do CEO\nValor de investimento\nURL do site'). Cada linha vira um enriquecimento."
     llm_description: "Data to extract from each result. Separate multiple enrichments with newlines. Each line describes a piece of information to extract (e.g. 'CEO name', 'funding amount', 'company website')."
@@ -126,7 +126,7 @@ parameters:
       pt_BR: Título do Webset
     human_description:
       en_US: Optional display name for the Webset.
-      zh_Hans: Webset 的可选显示名称。
+      zh_Hans: 可选的 Webset 显示名称。
       ja_JP: Websetのオプションの表示名。
       pt_BR: Nome de exibição opcional para o Webset.
     llm_description: Optional title for the Webset. Auto-generated if not provided.

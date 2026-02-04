@@ -24,7 +24,7 @@ parameters:
       pt_BR: Consulta
     human_description:
       en_US: The question you want answered with cited sources.
-      zh_Hans: 您想要获得带引用来源回答的问题。
+      zh_Hans: 想要回答的问题，结果将附带引用来源。
       ja_JP: 引用元付きで回答してほしい質問。
       pt_BR: A pergunta que você deseja respondida com fontes citadas.
     llm_description: The question to be answered with supporting evidence from the web.
