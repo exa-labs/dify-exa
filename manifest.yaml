@@ -1,7 +1,7 @@
-version: 0.0.1
+version: 0.0.2
 type: plugin
 author: "Exa Labs"
-name: exa
+name: exa_ai
 label:
   en_US: Exa
   zh_Hans: Exa
@@ -23,7 +23,7 @@ tags:
   - search
   - productivity
 meta:
-  version: 0.0.1
+  version: 0.0.2
   arch:
     - amd64
     - arm64
