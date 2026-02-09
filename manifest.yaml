@@ -1,6 +1,6 @@
 version: 0.0.2
 type: plugin
-author: "Exa Labs"
+author: "ExaLabs"
 name: exa_ai
 label:
   en_US: Exa
